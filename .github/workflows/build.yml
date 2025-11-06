@@ -16,6 +16,8 @@ jobs:
     name: Build
     runs-on: windows-latest
     steps:
+    - name: Enable long paths for Git
+      run: git config --system core.longpaths true
     - name: Check out
       uses: actions/checkout@v3
     - name: Setup .Net
@@ -29,7 +31,7 @@ jobs:
     - name: Install EF Tools
       run: dotnet tool install --global dotnet-ef
     - name: Deploy Database
-      run: dotnet ef database update --project LondonFhirService.Core/LondonFhirService.Core.csproj --startup-project LondonFhirService.Core/LondonFhirService.Core.csproj
+      run: dotnet ef database update --project PatientKnowsBest.Core/PatientKnowsBest.Core.csproj --startup-project PatientKnowsBest.Core/PatientKnowsBest.Core.csproj
     - name: Run Unit Tests
       run: >-
         $projects = Get-ChildItem -Path . -Filter "*Tests.Unit*.csproj" -Recurse
@@ -81,7 +83,7 @@ jobs:
 
         sudo apt-get install xmlstarlet
 
-        version_number=$(xmlstarlet sel -t -v "//Version" -n LondonFhirService.Core/LondonFhirService.Core.csproj)
+        version_number=$(xmlstarlet sel -t -v "//Version" -n PatientKnowsBest.Core/PatientKnowsBest.Core.csproj)
 
         echo "$version_number"
 
@@ -100,7 +102,7 @@ jobs:
 
         sudo apt-get install xmlstarlet
 
-        package_release_notes=$(xmlstarlet sel -t -v "//PackageReleaseNotes" -n LondonFhirService.Core/LondonFhirService.Core.csproj)
+        package_release_notes=$(xmlstarlet sel -t -v "//PackageReleaseNotes" -n PatientKnowsBest.Core/PatientKnowsBest.Core.csproj)
 
         echo "$package_release_notes"
 

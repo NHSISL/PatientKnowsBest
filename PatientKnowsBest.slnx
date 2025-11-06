@@ -1,0 +1,17 @@
+<Solution>
+  <Folder Name="/Build/">
+    <File Path=".editorconfig" />
+    <File Path=".github/copilot-instructions.md" />
+    <File Path=".github/dependabot.yml" />
+    <File Path=".github/workflows/build.yml" />
+    <File Path=".github/workflows/prLinter.yml" />
+    <File Path=".gitignore" />
+    <File Path="README.md" />
+    <Project Path="PatientKnowsBest.Infrastructure/PatientKnowsBest.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/Core/">
+    <Project Path="PatientKnowsBest.Core.Tests.Unit/PatientKnowsBest.Core.Tests.Unit.csproj" />
+    <Project Path="PatientKnowsBest.Core/PatientKnowsBest.Core.csproj" />
+  </Folder>
+  <Folder Name="/Documentation/" />
+</Solution>
